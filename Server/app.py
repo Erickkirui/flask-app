@@ -2,6 +2,7 @@ from flask import Flask ,request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
+from Models.users import User
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
@@ -11,10 +12,6 @@ api = Api(app)
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
-# Import the User model from your models.py file
-from Models.users import User
-
 
 
 class UserResource(Resource):
